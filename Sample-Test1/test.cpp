@@ -7,7 +7,11 @@ public:
 	SimilarChecker checker;
 };
 
-TEST(SimilarCheckerTest, SP) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST_F(SimilarCheckerTest, GetMaxLengthScore) {
+  EXPECT_EQ(MAX_LENGTH_SCORE, checker.getLengthScore("ASD", "DSA"));
+}
+
+TEST_F(SimilarCheckerTest, GetMinLengthScore) {
+	EXPECT_EQ(MIN_LENGTH_SCORE, checker.getLengthScore("A", "BB"));
+	EXPECT_EQ(MIN_LENGTH_SCORE, checker.getLengthScore("BB", "A"));
 }
