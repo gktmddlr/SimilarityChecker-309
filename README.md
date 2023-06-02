@@ -1,3 +1,3 @@
-### Spliter
+### SimliarChecker
 ---
-Split and Sum
+SimliarChecker
