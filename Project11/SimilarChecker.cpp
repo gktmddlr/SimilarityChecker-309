@@ -1,6 +1,8 @@
 
 #include <string>
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 
 using namespace std;
 
@@ -14,7 +16,15 @@ class SimilarChecker
 public:
 	int getSimilarityScore(const string& str1, const string& str2)
 	{
-		return getLengthScore(str1, str2) + getAlphaScore(str1, str2);
+		try {
+			exceptionCheck(str1, str2);
+			return getLengthScore(str1, str2) + getAlphaScore(str1, str2);
+		}
+		catch(std::invalid_argument& e)
+		{
+			cout << "Error message : " << e.what() << endl;
+		}
+		return 0;
 	}
 
 	int getLengthScore(const string& str1, const string& str2)
@@ -34,6 +44,22 @@ public:
 	}
 
 private:
+	void invalidString(const string& str)
+	{
+		for(auto ch : str)
+		{
+			if(ch < 'A' || ch > 'Z')
+			{
+				throw std::invalid_argument("A~Z 값만 문자열로 입력하시오.");
+			}
+		}
+	}
+
+	void exceptionCheck(const string& str1, const string& str2)
+	{
+		invalidString(str1);
+		invalidString(str2);
+	}
 
 	bool isMaxLengthScore(const string& str1, const string& str2)
 	{

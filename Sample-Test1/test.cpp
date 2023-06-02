@@ -36,3 +36,14 @@ TEST_F(SimilarCheckerTest, GetPartialAlphaScore) {
 	EXPECT_EQ(20, checker.getAlphaScore("AA", "AAE"));
 	EXPECT_EQ(10, checker.getAlphaScore("AA", "ABCD"));
 }
+
+TEST_F(SimilarCheckerTest, CheckSimilarityScore) {
+	EXPECT_EQ(0, checker.getSimilarityScore("A", "BB"));
+	EXPECT_EQ(100, checker.getSimilarityScore("ASD", "DSA"));
+	EXPECT_EQ(60, checker.getSimilarityScore("AAABB", "BAA"));
+}
+
+TEST_F(SimilarCheckerTest, CheckException) {
+	EXPECT_EQ(0, checker.getSimilarityScore("A1B", "123"));
+	
+}
