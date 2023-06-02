@@ -13,7 +13,6 @@ public:
 
 	int getLengthScore(const string& str1, const string& str2)
 	{
-		int value;
 		if (isMaxLengthScore(str1, str2)) return MAX_LENGTH_SCORE;
 		if (isMinLengthScore(str1, str2)) return MIN_LENGTH_SCORE;
 		return getPartialLengthScore(str1, str2);
