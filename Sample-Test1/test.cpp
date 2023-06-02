@@ -15,3 +15,9 @@ TEST_F(SimilarCheckerTest, GetMinLengthScore) {
 	EXPECT_EQ(MIN_LENGTH_SCORE, checker.getLengthScore("A", "BB"));
 	EXPECT_EQ(MIN_LENGTH_SCORE, checker.getLengthScore("BB", "A"));
 }
+
+TEST_F(SimilarCheckerTest, GetPartialLengthScore) {
+	EXPECT_EQ(20, checker.getLengthScore("AAABB", "BAA"));
+	EXPECT_EQ(20, checker.getLengthScore("BAA", "AAABB"));
+	EXPECT_EQ(30, checker.getLengthScore("AA", "AAA"));
+}
