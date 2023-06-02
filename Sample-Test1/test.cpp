@@ -31,3 +31,8 @@ TEST_F(SimilarCheckerTest, GetMinAlphaScore) {
 	EXPECT_EQ(MIN_ALPHA_SCORE, checker.getAlphaScore("A", "BB"));
 	EXPECT_EQ(MIN_ALPHA_SCORE, checker.getAlphaScore("ABC", "DEFZXXI"));
 }
+
+TEST_F(SimilarCheckerTest, GetPartialAlphaScore) {
+	EXPECT_EQ(20, checker.getAlphaScore("AA", "AAE"));
+	EXPECT_EQ(10, checker.getAlphaScore("AA", "ABCD"));
+}

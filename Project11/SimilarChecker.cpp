@@ -12,6 +12,10 @@ constexpr int MIN_ALPHA_SCORE = 0;
 class SimilarChecker
 {
 public:
+	int getSimilarityScore(const string& str1, const string& str2)
+	{
+		return getLengthScore(str1, str2) + getAlphaScore(str1, str2);
+	}
 
 	int getLengthScore(const string& str1, const string& str2)
 	{
