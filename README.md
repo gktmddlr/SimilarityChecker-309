@@ -1,0 +1,3 @@
+### Spliter
+---
+Split and Sum
