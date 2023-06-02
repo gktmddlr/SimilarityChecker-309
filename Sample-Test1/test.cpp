@@ -21,3 +21,13 @@ TEST_F(SimilarCheckerTest, GetPartialLengthScore) {
 	EXPECT_EQ(20, checker.getLengthScore("BAA", "AAABB"));
 	EXPECT_EQ(30, checker.getLengthScore("AA", "AAA"));
 }
+
+TEST_F(SimilarCheckerTest, GetMaxAlphaScore) {
+	EXPECT_EQ(MAX_ALPHA_SCORE, checker.getAlphaScore("ASD", "DSA"));
+	EXPECT_EQ(MAX_ALPHA_SCORE, checker.getAlphaScore("AAABB", "BA"));
+}
+
+TEST_F(SimilarCheckerTest, GetMinAlphaScore) {
+	EXPECT_EQ(MIN_ALPHA_SCORE, checker.getAlphaScore("A", "BB"));
+	EXPECT_EQ(MIN_ALPHA_SCORE, checker.getAlphaScore("ABC", "DEFZXXI"));
+}
