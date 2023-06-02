@@ -40,7 +40,7 @@ public:
 		vector<bool> alpha_str2 = getAlphabetCheckVector(str2);
 		int total_cnt = getAlphabetTotalCount(alpha_str1, alpha_str2);
 		int same_cnt = getAlphabetSameCount(alpha_str1, alpha_str2);
-		return static_cast<double>(same_cnt) / total_cnt * 40;
+		return static_cast<double>(same_cnt) / total_cnt * MAX_ALPHA_SCORE;
 	}
 
 private:
